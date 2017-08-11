@@ -5,11 +5,17 @@
 </head>
 <body>
 	<div>
-		<h1 data-bind ="text:name"></h1>
-		<h1 data-bind = "text: level"></h1>
-		<div data-bind = "text : clickCount"></div>
-		<img data-bind = "click: incrementCounter , attr:{src: imgSrc}"  src="">
+		<h1 data-bind ="text:currentCat().name"></h1>
+		<h1 data-bind = "text: currentCat().title"></h1>
+		<div data-bind = "text : currentCat().clickCount"></div>
+		<img data-bind = "click: incrementCounter , attr:{src: currentCat().imgSrc}" >
+		<div>
+			<h3> NickName </h3>
+				<ul data-bind = "foreach : currentCat().Nickname">
+					<li data-bind = text: $data></li>
+				</ul>
 		
+		</div>
 	</div>
 	<script type="text/javascript" src="js/knockout-3.4.2.js"></script>
 

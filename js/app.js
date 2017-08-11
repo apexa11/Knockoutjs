@@ -25,14 +25,14 @@ var Viewmodel = function(){
 		return title;
 	}, this);
 
-};
+}
 
 var Viewmodel = function(){
 	var self = this;
 	this.currenCat = ko.observable(new Cat());
 	this.incrementCounter = function(){
-		this.currentCat.clickCount(this.currentCat.clickCount() + 1);
+		this.currentCat().clickCount(this.currentCat().clickCount() + 1);
 	};
 
-}
+};
 ko.applyBindings(new Viewmodel());
