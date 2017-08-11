@@ -4,8 +4,34 @@ var Viewmodel = function(){
 	this.imgSrc = ko.observable("img/cat.jpg");
 	this.Nickname = ko.observableArray(["nono,noni"]);
 
+	this.title = ko.computed(function(){
+		var title;
+		var click = this.clickCount();
+		if(click < 10){
+			title = "new born"
+		}
+		else if (click < 50){
+			title = "infant"
+		}
+		else if (click <100){
+			title = "child"
+		}
+		else if (click < 200){
+			title = "teen"
+		}
+		else if (click <300){
+			title = "men"
+		}
+		return title;
+	}, this);
+
+};
+
+var Viewmodel = function(){
+	var self = this;
+	this.currenCat = ko.observable(new Cat());
 	this.incrementCounter = function(){
-		this.clickCount(this.clickCount() + 1);
+		this.currentCat.clickCount(this.currentCat.clickCount() + 1);
 	};
 
 }
