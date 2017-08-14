@@ -4,14 +4,14 @@
 	<title>Click counter</title>
 </head>
 <body>
-	<div>
-		<h1 data-bind ="text:currentCat().name"></h1>
-		<h1 data-bind = "text: currentCat().title"></h1>
-		<div data-bind = "text : currentCat().clickCount"></div>
-		<img data-bind = "click: incrementCounter , attr:{src: currentCat().imgSrc}" >
+	<div data-bind = "with : currentCat()">
+		<h1 data-bind ="text:name"></h1>
+		<h1 data-bind = "text:title"></h1>
+		<div data-bind = "text :clickCount"></div>
+		<img data-bind = "click:$parent.incrementCounter , attr:{src:imgSrc}" >
 		<div>
 			<h3> NickName </h3>
-				<ul data-bind = "foreach : currentCat().Nickname">
+				<ul data-bind = "foreach :Nickname">
 					<li data-bind = "text:$data"></li>
 				</ul>
 		
